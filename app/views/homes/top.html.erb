@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to "new park", new_park_path %>
+    </div>
+  </div>
+  <div class="row">
+    <% @regions.each do |region| %>
+      <div class="col-sm-12 mb-4">
+        <p class="mb-1"><%= region.name %></p>
+        <% region.prefectures.each do |prefecture| %>
+          <%= link_to prefecture.name, prefecture_parks_path(prefecture), class: "mr-2" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+      <button type="button" class="btn btn-primary">Primary</button>
+      <button type="button" class="btn btn-secondary">Secondary</button>
+      <button type="button" class="btn btn-success">Success</button>
+      <button type="button" class="btn btn-danger">Danger</button>
+      <button type="button" class="btn btn-warning">Warning</button>
+      <button type="button" class="btn btn-info">Info</button>
+      <button type="button" class="btn btn-light">Light</button>
+      <button type="button" class="btn btn-dark">Dark</button>
+      <button type="button" class="btn btn-link">Link</button>

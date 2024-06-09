@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  resources :parks, except: [:index] do
+    resource :favorite, only: [:create, :destroy]
+  end
+
+  resources :prefectures, only: [] do
+    resources :parks, only: [:index]
+  end
+
+  root to: 'homes#top'
+  get '/about', to: 'homes#about', as: :about
 end
+
