@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
 
   has_one_attached :image
-  
+
   GUEST_USER_EMAIL = "guest@example.com"
 
   def self.guest
