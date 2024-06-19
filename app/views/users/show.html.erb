@@ -1,15 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>ユーザー詳細</h1>
 <p id="notice"></p>
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
       <!-- ユーザーの詳細情報を直接表示 -->
+      <p>画像: <%= image_tag (@user.image.present? ? @user.image : "no_image.jpg"), size: "200x200" %></p></br>
       <p>ユーザー名: <%= @user.name %></p>
       <p>メールアドレス: <%= @user.email %></p>
     </div>
   </div>
 </div>
-<%= link_to '編集', edit_user_path(@user) %>
-<%= link_to '戻る', :back %></br>
-<%= link_to '削除', user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+<% if @user == current_user %>
+  <%= link_to '編集', edit_user_path(@user) %>
+<% end %>
+
+<%= link_to '戻る', users_path(@user) %></br>
+
+<% if @user == current_user %>
+  <%= link_to '削除', user_path(@user), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+<% end %>

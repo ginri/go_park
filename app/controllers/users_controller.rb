@@ -1,21 +1,32 @@
 class UsersController < ApplicationController
   def index
-    # 一覧表示の処理を追加
+
     @users = User.all
   end
 
   def show
-    # 詳細表示の処理を追加
-    @user = User.find(params[:id])
-
+  @user = User.find(params[:id])
+    if @user.nil?
+      flash[:error] = "ユーザーが見つかりません"
+      redirect_to users_path
+    end
   end
 
   def edit
-    # 編集画面の処理を追加
+      user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to users_path
+    end
+
     @user = User.find(params[:id])
   end
 
   def update
+      user = User.find(params[:id])
+    unless user.id == current_user.id
+      redirect_to users_path
+    end
+
     user = User.find(params[:id])
     user.update(user_params)
     redirect_to user_path(user.id)
@@ -30,6 +41,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :name)
+    params.require(:user).permit(:email, :name, :image)
   end
 end
