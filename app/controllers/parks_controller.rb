@@ -1,6 +1,6 @@
 class ParksController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  
+
   def new
     @park = Park.new
   end

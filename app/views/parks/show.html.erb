@@ -29,7 +29,7 @@
 <% if User == current_user %>
   <%= link_to '編集', edit_park_path(@park) %>
 <% end %>
-<%#= link_to 'もどる', :back %>
+
 <%= link_to '戻る', prefecture_parks_path(@park.prefecture.id) %></br>
 
 <% if User == current_user %>
