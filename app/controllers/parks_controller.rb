@@ -1,14 +1,20 @@
 class ParksController < ApplicationController
   before_action :authenticate_user!, only: [:new]
+  before_action :ensure_guest_user, except: [:index, :show]
 
   def new
     @park = Park.new
   end
 
   def create
-    park = Park.new(park_params)
-    park.save
-    redirect_to park
+    @park = Park.new(park_params)
+    @park.user_id = current_user.id
+    if @park.save
+      redirect_to @park
+    else
+      render :new
+    end
+
   end
 
 
@@ -46,6 +52,13 @@ class ParksController < ApplicationController
 
   def park_params
     params.require(:park).permit(:name, :description, :address, :prefecture_id, :image)
+  end
+
+  def ensure_guest_user
+
+    if current_user.email == "guest@example.com"
+      redirect_to root_path
+    end
   end
 
 end

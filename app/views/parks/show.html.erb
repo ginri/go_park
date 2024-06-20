@@ -2,11 +2,12 @@
   <div class="row">
     <div class="col-sm-12 m-4">
       <p>画像</p>
-      <%= image_tag @park.image, size: "200x200" %></br>
-      <%= @park.name%></br>
-      <%= @park.prefecture.name %></br>
-      <%= @park.address %></br>
-      <%= @park.description%></br>
+      <p><%= image_tag @park.image, size: "200x200" %></p>
+      <p>公園名：<%= @park.name%></p>
+      <p>都道府県名：<%= @park.prefecture.name %></p>
+      <p>住所：<%= @park.address %></p>
+      <p>紹介：<%= @park.description%></p>
+      <p>ユーザーネーム：<%= @park.user.name %></p>
 
     </div>
   </div>

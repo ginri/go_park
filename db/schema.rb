@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2024_06_09_121329) do
     t.text "description", null: false
     t.float "longitude"
     t.float "latitude"
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
