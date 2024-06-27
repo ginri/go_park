@@ -1,6 +1,5 @@
 class ParksController < ApplicationController
   before_action :authenticate_user!, only: [:new]
-  before_action :ensure_guest_user, except: [:index, :show]
 
   def new
     @park = Park.new

@@ -27,13 +27,13 @@
     </p>
   <% end %>
 </div>
-<% if User == current_user %>
+<% if @park.user_id == current_user.id %>
   <%= link_to '編集', edit_park_path(@park) %>
 <% end %>
 
 <%= link_to '戻る', prefecture_parks_path(@park.prefecture.id) %></br>
 
-<% if User == current_user %>
+<% if @park.user_id == current_user.id %>
   <%= link_to '削除', park_path(@park), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
 <% end %>
 
