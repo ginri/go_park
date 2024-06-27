@@ -66,3 +66,9 @@ kyushu.prefectures.find_or_create_by!(name: "鹿児島", slug: "kagoshima")
 okinawa.prefectures.find_or_create_by!(name: "沖縄", slug: "okinawa")
 
 puts "dataの作成が完了しました"
+
+#User.create!(
+    #email: "p@p",
+    #name: "pp",
+    #password: "pppppp"
+  #)

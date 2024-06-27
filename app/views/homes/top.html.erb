@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 m-4">
-      <% if user_signed_in? && current_user.email != "guest@example.com" %>
+      <% if user_signed_in? %>
         <button type="button" class="btn btn-light">
           <%= link_to "new park", new_park_path %>
         </button>
