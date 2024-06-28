@@ -16,6 +16,7 @@
                   <%= link_to park.name, park%></h5>
                 </span>
                 <p><%= park.user.name %></p>
+                <p><%= link_to "#{park.park_comments.count} コメント", park_path(park.id) %></p>
             </div>
         </div>
       <% end %>

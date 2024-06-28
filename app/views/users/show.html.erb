@@ -6,6 +6,7 @@
       <p>画像: <%= image_tag (@user.image.present? ? @user.image : "no_image.jpg"), size: "200x200" %></p></br>
       <p>ユーザー名: <%= @user.name %></p>
       <p>メールアドレス: <%= @user.email %></p>
+      <p><%= link_to "#{current_user.parks.joins(:park_comments).where(park_comments: { user_id: @user.id }).count} コメント", park_path(@user.parks) %></p>
     </div>
   </div>
 </div>

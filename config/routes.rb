@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     resources :parks, only: [:index]
   end
 
+  resources :parks, only: [:new, :create, :index, :show, :destroy] do
+    resources :park_comments, only: [:create]
+  end
+
   root to: 'homes#top'
   get '/about', to: 'homes#about', as: :about
 
